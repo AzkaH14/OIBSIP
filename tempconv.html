@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Inter:wght@400;500;700&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+    <title>Temperature Converter</title>
+
+</head>
+<style>
+    body{
+        padding : 50px  100px;
+    }
+
+    h1{
+
+        text-align: center;
+        font-family: Verdana, sans-serif;
+        color:rgb(50, 2, 95)   
+    }
+
+    #container{
+        text-align: center;
+        background-color: rgb(154, 146, 246);
+        padding: 50px ;
+        width: 50%; 
+    margin: 0 auto; 
+    }
+
+    .temp-icon{
+    position: absolute; 
+    top: 70px; 
+    right: 285px; 
+    font-size: 40px;
+    color:rgb(50, 2, 95) 
+    }
+
+    .input-dev {
+           
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;}
+
+    .input{
+    padding: 5px;
+    margin:10px;
+    font-size: 27px;
+    font-weight: medium;
+    width: 250px;
+    text-align: center;
+    }
+
+    label{
+        font-weight: medium;
+        font-family: Verdana, sans-serif;
+        font-size: 21px;
+        color:rgb(50, 2, 95)       
+       }
+
+</style>
+<body>
+    <div id="container">
+        <span class="temp-icon"><i class="fa-solid fa-temperature-high"></i></span>
+        <h1>Temperature Converter</h1>
+        <div class="input-dev">
+            
+            <input type="number"   id="cel"  class="input"  name=""  placeholder="Celcius">
+        </div>
+
+        <div><div class="input-dev">
+         
+            <input type="number"    id="fah"  class="input"  name=""  placeholder="Fahrenheit"></div>
+    </div>
+
+    <script>
+        var cel= document.getElementById("cel");
+        var fah= document.getElementById("fah");
+
+        cel.addEventListener('input',function(){
+            let c=this.value;
+            let f= (c*9/5) +32;
+            if(!Number.isInteger(f)){
+                f=f.toFixed(4);
+            }
+            fah.value=f;
+        });
+
+        fah.addEventListener('input',function(){
+            let f=this.value;
+            let c= (f-32) *9/5;
+            if(!Number.isInteger(c)){
+                c=c.toFixed(4);
+            }
+            cel.value=c;
+        });
+
+
+
+
+    </script>
+</body>
+</html>
